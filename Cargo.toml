@@ -2,7 +2,7 @@
 name = "stripper"
 license = "MIT"
 description = "A tool to strip words from files very quickly."
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 exclude = [
     "test/*",
