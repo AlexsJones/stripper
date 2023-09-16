@@ -16,6 +16,8 @@ jobs:
       run: cargo build --release
   release:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     needs: [build]
     steps:
       - uses: actions/checkout@v3
