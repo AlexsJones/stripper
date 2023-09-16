@@ -10,17 +10,12 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
     - uses: actions/checkout@v3
     - name: Build
       run: cargo build --release
-  release:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    needs: [build]
-    steps:
-      - uses: actions/checkout@v3
-      - uses: ncipollo/release-action@v1
-        with:
-          artifacts: "target/release/st"
+    - uses: ncipollo/release-action@v1
+      with:
+        artifacts: "target/release/st"
