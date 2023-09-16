@@ -18,14 +18,8 @@ jobs:
     runs-on: ubuntu-latest
     needs: [build]
     steps:
-    - uses: actions/checkout@master
-    - name: Create release
-      uses: Roang-zero1/github-create-release-action@v2
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - name: Upload release artifacts
-      uses: Roang-zero1/github-upload-release-artifacts-action@v2
+    - uses: Shopify/upload-to-release@v1
       with:
-        args: "./target/release/st"
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        name: stripper
+        path: target/release/st
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
